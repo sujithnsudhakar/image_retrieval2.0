@@ -1,0 +1,87 @@
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<div class="height100">
+  <form [formGroup] = "uploadForm" enctype="multipart/form-data">
+    <div class="header">
+      <div class="label-group">
+        <div class="header-label">
+          Content based Image Search
+        </div>
+        <div class="sub-header-label">
+          Driven by XAI
+        </div>
+      </div>
+      <div class="search-outer">
+        <div class="search-container box-shadow">
+          <div>
+            <img src="/assets/images/search.svg" alt="search" />
+          </div>
+          <div *ngFor="let image of uploadedImages"  class="image-items ">
+             {{image}}
+          </div>          
+          <div class="btn-group">
+            <div class="input-container">
+              <input type="file" name="file" (change)="fileChange($event)" id="file" multiple accept="image/*" class="file-input">
+              <label for="file"><img src="/assets/images/upload.svg"/></label> 
+            </div>
+            <button class="search-btn" (click)="runscript()">Search</button>
+          </div> 
+          <!--Upload multiple images and store the repository meta data into mongo-->
+          <!-- <div class="btn-group">
+            <div class="input-container">
+              <input type="file" name="file" (change)="fileChangeMultiple($event)" id="file" multiple accept="image/*" class="file-input">
+              <label for="file"><img src="/assets/images/upload.svg"/></label> 
+            </div>
+            <button class="search-btn"  (click)="runscript()">Search</button>
+            <button class="search-btn"  (click)="uploadMultiple()">Upload</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+</form>
+  <!-- <div>
+    Show Image results based on search
+  </div> -->
+  <div class=" row results-count">
+    <div class="col-sm-8"><div class="count-circle"> {{resultsCount || 0}}  </div>matching results.</div>
+    <div ><button class="search-btn" (click)="explainImage()">Compare</button></div>
+  </div>
+  <div class="row-info" *ngIf="jsonImageObj.length">
+    Below images are displayed based on color,foreground and high level semantic feature.
+    <!-- The {{highest}} feature has highest contribution & the {{lowest}} feature has lowest contribution.-->
+  </div>
+  <div class="results-container">
+  <div class="image-row disable-scrollbars">
+    <div *ngFor="let item of jsonImageObj" class="image-item box-shadow">
+  <!-- Uncomment the below line while building and deploying the code and comment the localhost:3000-->
+   <!--<div class="image" [style.background-image]="'url(static/'+item.name+')'"> </div>-->
+   <div class="image" [style.background-image]="'url(http://localhost:3000/static/'+item.name+')'"> </div>
+      <div class="image-button">
+        <!--<input  type="button" value="Explain" class="btn btn-primary btn-block explain-btn" (click)="displayChart(item);"> -->
+        <!-- Uncomment below code when mongo as the repository metadata so that it can call persist query -->
+        <input  type="button" value="Explain" class="btn btn-primary btn-block explain-btn" (click)="displayChart(item);persistId(item)">
+        <div class="circles">
+          <div> </div>
+          <div> </div>
+          <div> </div>  
+        </div>
+      </div>
+    </div> 
+  </div>
+  <div class="image-desc box-shadow" *ngIf="jsonImageObj.length">
+    <div class="desc-label">Query Image Comparision </div><br/>
+    <div class = "row">
+      <div class = "col-sm-6"><img [src]="localUrl" *ngIf="localUrl" class="image query-image"></div>
+      <div class = "col-sm-6"><img [src]="localUrl" *ngIf="localUrl" class="image query-image"></div>
+    </div>
+    <!--<div class="query-image" [style.background-image]="'url('+localUrl+')'"> </div>
+    <div class="query-image" [style.background-image]="'url('+localUrl+')'"> </div> -->
+   <div class="description">
+      {{description}}
+    </div>
+     <div class="chart-container" style="height: 500px; width: 390px" id="pieChart"></div>
+     <!--<div class="chart-container" style="height: 500px; width: 390px" #chartContainer></div>-->
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

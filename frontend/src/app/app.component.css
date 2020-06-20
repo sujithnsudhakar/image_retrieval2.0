@@ -1,0 +1,250 @@
+.image-row{
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    /*padding-left: 100px;
+    width: 90%;
+    padding-left: 67px;*/
+    padding-left: 100px;
+    overflow-y: scroll;
+    height: 600px;
+}
+
+.results-container{
+    display: flex; 
+}
+
+.image-desc{
+    /*width: 28%;*/
+    width: 30%;
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    border-top: 5px solid #27346B;
+}
+.query-image{
+    /*padding-bottom: 20px;*/
+    width: 200px;
+    height: 215px;
+    /*height: 174px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.description{
+    font-weight: 200;
+    padding: 20px;
+}
+.height100{
+    height: 100%;
+}
+.desc-label{
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+    text-align: center; 
+}
+
+.results-count{
+    font-family: 'Open Sans', sans-serif;
+    padding: 0px 105px;
+    font-size: larger;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.row-info{
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px 105px;
+    font-size: 16px;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+}
+.count-circle{
+    border: 1px solid #27346B;
+    border-radius: 50px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    color:#27346B;
+}
+.image-box{
+  width: 50%;
+}
+.image-row .image-item{
+    height: 265px;
+    width: 250px;
+    /*height: 229px;
+    width: 192px;*/
+    background-color: white;
+    margin: 10px;
+    border-radius: 2px; 
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+.image {
+    height: 215px;
+    /*height: 174px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.image-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0px 10px;
+}
+
+.image-button .explain-btn{
+    /*width: 40%;*/
+    width: 50%; 
+    height: 35px;
+    background: #27346B;
+}
+.image img{
+    height: calc(100% - 20px);
+}
+
+.circles{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 40px;
+    /*width: calc(50% - 50px);*/
+    width: calc(50% - 21px);
+    cursor: pointer;
+    padding: 0px 10px;
+}
+
+.circles div{
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    background-color: #DB5669;
+}
+
+.search-container{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+/* New Styles */
+.header{
+    background-color: #27346B;
+    height: 250px;
+    color: white;
+    position: relative;
+}
+
+.label-group{
+    padding-top: 40px;
+}
+
+.header-label{
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.sub-header-label{
+    font-size: 24px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.search-outer{
+    display: flex;
+    justify-content: center;
+}
+.search-container{
+    background: white;
+    color: #333333;
+    height: 50px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 4px;
+    padding: 0px 10px;
+    margin-top: 75px
+}
+
+.box-shadow {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+                0 2px 2px rgba(0,0,0,0.12), 
+                0 4px 4px rgba(0,0,0,0.12), 
+                0 8px 8px rgba(0,0,0,0.12),
+                0 16px 16px rgba(0,0,0,0.12);
+  }
+
+.search-container img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.input-container input{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.input-container{
+    background: #DB5669;
+    color: white;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0px 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    border: none;
+}
+
+.search-btn{
+    background: #DB5669;
+    color: white;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+} 
+.input-container label{
+    margin: 0;
+    width: 30px;
+    cursor: pointer;
+
+}
+
+.btn-group{
+    display: flex;
+}
+
+.btn-group > div{
+    margin: 0px 5px
+}
+.disable-scrollbars::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari/Webkit */
+}
